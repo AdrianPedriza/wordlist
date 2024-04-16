@@ -42,8 +42,8 @@ func main() {
 			firstWordPart := word[:i]
 			secondWordPart := word[i:]
 
-			if _, ok := wordsListNormalized[firstWordPart]; ok {
-				if _, ok := wordsListNormalized[secondWordPart]; ok {
+			if isSubStringnWordList(firstWordPart, wordsListNormalized) {
+				if isSubStringnWordList(secondWordPart, wordsListNormalized) {
 					fmt.Printf("%s + %s => %s\n", firstWordPart, secondWordPart, word)
 				}
 			}
@@ -59,4 +59,12 @@ func main() {
 
 func isValidWord(word string) bool {
 	return len(word) <= wordNeededLen
+}
+
+func isSubStringnWordList(subString string, wordList map[string]bool) bool {
+	if _, ok := wordList[subString]; ok {
+		return true
+	}
+
+	return false
 }
