@@ -30,21 +30,21 @@ func main() {
 		wordsListNormalized[wordToLower] = true
 	}
 
-	for k := range wordsListNormalized {
-		if len(k) != wordNeededLen {
+	for word := range wordsListNormalized {
+		if !isValidWord(word) {
 			continue
 		}
-		for i := range k {
+
+		for i := range word {
 			if i == 0 {
 				continue
 			}
-			firstWordPart := k[:i]
-			secondWordPart := k[i:]
+			firstWordPart := word[:i]
+			secondWordPart := word[i:]
 
 			if _, ok := wordsListNormalized[firstWordPart]; ok {
 				if _, ok := wordsListNormalized[secondWordPart]; ok {
-
-					fmt.Println(k)
+					fmt.Println(word)
 
 				}
 			}
@@ -56,4 +56,8 @@ func main() {
 	}
 
 	os.Exit(0)
+}
+
+func isValidWord(word string) bool {
+	return len(word) <= wordNeededLen
 }
