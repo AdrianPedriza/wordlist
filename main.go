@@ -30,7 +30,6 @@ func main() {
 		wordsListNormalized[wordToLower] = true
 	}
 
-	n := 0
 	for word := range wordsListNormalized {
 		if !isValidWord(word) {
 			continue
@@ -45,7 +44,6 @@ func main() {
 
 			if _, ok := wordsListNormalized[firstWordPart]; ok {
 				if _, ok := wordsListNormalized[secondWordPart]; ok {
-					n++
 					fmt.Printf("%s + %s => %s\n", firstWordPart, secondWordPart, word)
 				}
 			}
