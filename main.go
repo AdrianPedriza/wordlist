@@ -58,7 +58,7 @@ func main() {
 }
 
 func isValidWord(word string) bool {
-	return len(word) <= wordNeededLen
+	return len(word) == wordNeededLen
 }
 
 func isSubStringnWordList(subString string, wordList map[string]bool) bool {
