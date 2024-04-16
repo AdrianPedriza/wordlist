@@ -35,6 +35,9 @@ func main() {
 			continue
 		}
 		for i := range k {
+			if i == 0 {
+				continue
+			}
 			firstWordPart := k[:i]
 			secondWordPart := k[i:]
 
